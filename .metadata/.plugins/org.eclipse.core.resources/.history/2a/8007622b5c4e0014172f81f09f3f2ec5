@@ -1,0 +1,34 @@
+package com.cookies;
+
+import java.sql.*;
+
+public class Start_Program {
+	Connection connection = null;
+	
+	public Start_Program(){
+		
+	}
+	
+	public boolean validateLogin(){
+		Boolean isValidated = false;
+		String url = "jdbc:mysql://192.186.249.9/PenFed_Realty";
+		String user ="administrator";
+		String pass = "adminpas";
+		try{
+			connection = DriverManager.getConnection(url,user,pass);
+		}catch (SQLException e){
+			System.out.println(e);
+		}
+		return isValidated;
+	}
+	
+	
+
+	public static void main(String[] args) {
+		Start_Program t = new Start_Program();
+		System.out.println(t.validateLogin());
+		System.out.println("YEA");
+
+	}
+
+}

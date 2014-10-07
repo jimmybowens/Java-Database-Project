@@ -1,0 +1,20 @@
+package com.cookies;
+
+import java.sql.*;
+
+public class Start_Program {
+	Connection connection = null;
+	
+	public Start_Program(){
+		
+	}
+	
+	
+
+	public static void main(String[] args) {
+		new Start_Program();
+		System.out.println("YEA");
+
+	}
+
+}

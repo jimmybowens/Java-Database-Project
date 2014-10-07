@@ -1,0 +1,26 @@
+package com.cookies;
+
+import java.sql.*;
+
+public class Start_Program {
+	Connection connection = null;
+	
+	public Start_Program(){
+		
+	}
+	
+	public boolean validateLogin(){
+		Boolean isValidated = false;
+		return isValidated;
+	}
+	
+	
+
+	public static void main(String[] args) {
+		Start_Program t = new Start_Program();
+		System.out.println(t.validateLogin());
+		System.out.println("YEA");
+
+	}
+
+}

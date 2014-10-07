@@ -1,0 +1,22 @@
+package com.cookies;
+
+import java.sql.*;
+
+public class Start_Program {
+	Connection connection = null;
+	
+	public Start_Program(){
+		try{
+			connection = DriverManager.getConnection("jdbc:mysql:localhost/test","Johnny","sam");
+		}catch (SQLException e){
+			System.out.println(e);
+		}
+	}
+
+	public static void main(String[] args) {
+		new Start_Program();
+		System.out.println("YEA");
+
+	}
+
+}
