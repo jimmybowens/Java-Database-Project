@@ -1,9 +1,8 @@
 package com.cookies;
 
-import java.awt.*;
 import java.sql.*;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 public class Start_Program extends JPanel{
 	/**
@@ -38,11 +37,6 @@ public class Start_Program extends JPanel{
 	}
 	
 	public static void main(String[] args) throws SQLException {
-		JFrame mainFrame = new JFrame();
-		mainFrame.setResizable(true);
-		mainFrame.setVisible(true);
-		mainFrame.setSize(new Dimension(800,800));
-		
 		Start_Program.validateLogin();
 		System.out.println(Start_Program.isUserValidated);
 	}
