@@ -1,0 +1,38 @@
+package com.cookies;
+
+import java.sql.*;
+
+import javax.swing.JPanel;
+
+public class Login extends JPanel{
+	private static final long serialVersionUID = 1L;
+	private String userName;
+	private String passWord;
+	public static Connection connection = null;
+	public Login(String userName, String passWord){
+		this.userName = userName;
+		this.passWord = passWord;
+		
+	}
+	
+	public static boolean validateLogin() throws SQLException{
+		//String url = "jdbc:mysql://192.186.249.9/PenFed_Realty";
+		String url = "jdbc:mysql://localhost/Java_Database_Project";
+		//String user ="administrator";
+		String user = "root";
+		//String pass = "adminpass";
+		String pass = "admin";
+		
+		try{
+			connection = DriverManager.getConnection(url,user,pass);
+		}catch (SQLException e){
+			System.out.println(e);
+		}finally{
+			connection.close();
+		}
+		
+		Start_Program.isUserValidated = true;
+		return Start_Program.isUserValidated;
+	}
+
+}

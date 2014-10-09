@@ -1,0 +1,43 @@
+package com.cookies;
+
+import java.sql.*;
+
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Login extends JPanel{
+	private static final long serialVersionUID = 1L;
+	private String userName;
+	private String passWord;
+	public static Connection connection = null;
+	private JTextField textField;
+	private JTextField textField_1;
+	public Login(String userName, String passWord){
+		this.userName = userName;
+		this.passWord = passWord;
+		
+		textField_1 = new JTextField();
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField = new JTextField();
+		add(textField);
+		textField.setColumns(10);
+			
+	}
+	
+	public static boolean validateLogin() throws SQLException{
+		String url = "jdbc:mysql://localhost/Java_Database_Project";
+		String user = "root";
+		String pass = "admin";
+		try{
+			connection = DriverManager.getConnection(url,user,pass);
+		}catch (SQLException e){
+			System.out.println(e);
+		}finally{
+			connection.close();
+		}
+		return Start_Program.isUserValidated;
+	}
+
+}
