@@ -1,0 +1,14 @@
+package com.cookies;
+
+import javax.swing.*;
+
+public class Account_Info extends JPanel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public Account_Info(){
+		
+	}
+}

@@ -8,11 +8,11 @@ import javax.swing.*;
 public class Start_Program{
 	public static Connection connection = null;
 	public static Boolean isUserValidated = false;
+	public static String loginUserName,loginPassWord;
 	
 	public Start_Program(){
 		
 	}
-	
 	
 	public static void main(String[] args) throws SQLException {
 		JFrame mainFrame = new JFrame();
@@ -20,10 +20,9 @@ public class Start_Program{
 		mainFrame.setVisible(true);
 		mainFrame.setSize(new Dimension(800,800));
 		
-		mainFrame.getContentPane().add(new Login("something","something"));
+		new Login();
+		mainFrame.getContentPane().add(new Login());
 		
-		Login.validateLogin();
-		//System.out.println(Start_Program.isUserValidated);
 	}
 
 }

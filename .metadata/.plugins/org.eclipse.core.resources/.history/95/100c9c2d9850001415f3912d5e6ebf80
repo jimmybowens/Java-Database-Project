@@ -1,0 +1,65 @@
+package com.cookies;
+
+import java.sql.*;
+
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+
+public class Login extends JPanel{
+	private static final long serialVersionUID = 1L;
+	private static String userName;
+	private static String passWord;
+	public static Connection connection = null;
+	public static PreparedStatement loginStatement;
+	public static ResultSet loginResult = null;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JLabel lblPassword;
+	public Login(String userName, String passWord){
+		setBackground(Color.BLACK);
+		this.userName = userName;
+		this.passWord = passWord;
+		setLayout(null);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(146, 112, 86, 20);
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField = new JTextField();
+		textField.setBounds(329, 112, 86, 20);
+		add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblLogin = new JLabel("Username:");
+		lblLogin.setBackground(Color.WHITE);
+		lblLogin.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblLogin.setBounds(63, 115, 77, 14);
+		add(lblLogin);
+		
+		lblPassword = new JLabel("Password:");
+		lblPassword.setBackground(Color.WHITE);
+		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPassword.setBounds(242, 114, 77, 17);
+		add(lblPassword);
+			
+	}
+	
+	public static boolean validateLogin() throws SQLException{
+		String url = "jdbc:mysql://localhost/Java_Database_Project";
+		String user = "root";
+		String pass = "admin";
+		try{
+			connection = DriverManager.getConnection(url,user,pass);
+			Login.loginStatement = Login.connection.prepareStatement("SELECT admin_username,admin_password FROM admin WHERE admin.admin_username = ? and admin.admin_password = ?");
+		}catch (SQLException e){
+			System.out.println(e);
+		}finally{
+			connection.close();
+		}
+		return Start_Program.isUserValidated;
+	}
+}
